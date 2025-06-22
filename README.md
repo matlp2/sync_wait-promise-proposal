@@ -32,6 +32,7 @@ const result = sync_wait(someAsyncOperation());
  - Allows full variable inspection across the call stack without async indirection.
  - Makes debugging async-heavy APIs (like WebGPU or Streams) much easier.
 
+<br>
 
 2. Optimize with Async Contagion Only if Needed
 - Developers can write simple, top-down, synchronous code in scripts, REPLs, notebooks, or browser DevTools.
