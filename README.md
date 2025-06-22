@@ -27,7 +27,7 @@ const result = sync_wait someAsyncOperation();
 
 
 ## Why JavaScript Needs `sync_wait`
-1. Improves Debuggability
+# 1. Improves Debuggability
  - Avoids async stack traces and step-over issues in debuggers.
  - Allows full variable inspection across the call stack without async indirection.
  - Makes using async-heavy APIs much easier.
