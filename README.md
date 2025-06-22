@@ -63,6 +63,7 @@ const result = sync_wait(someAsyncOperation());
  - Without `sync_wait`, library maintainers often feel forced to offer both async and sync versions of each function (e.g., readFile + readFileSync in Node.js).
  - With `sync_wait`, authors can expose only the async version, and let users synchronously wait on it if they choose, eliminating unnecessary API duplication.
 
+<br>
 
 7. Prior Art and Real-World Need
  - Node.js: Added sync file I/O due to strong developer demand (readFileSync, existsSync, etc.).
