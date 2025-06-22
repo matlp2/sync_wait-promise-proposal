@@ -70,7 +70,7 @@ const result = sync_wait someAsyncOperation();
 <br>
 
 ### 7. Discussing Common Objections — and Why They Don't Hold
- - **UI freezes**: Any `while` loop can completely block the browser’s main thread and do **main-thread hang** yet they are here to enable developers to implements their desired processes. Programming languages are made to enable developers. The more general idea of making programmers totally incapable of ever doing something -just because so slitly unsound relatively to an hyper general indulged-in paradigm- is what this argument is. This is what appened with not allowing top level awaits in script for the same reasons, and then allowing it for module script, because actually it is practical even if thurther UI elements won't render until all top level awaits finishes.
+ - **UI freezes**: Any `while` loop can completely block the browser’s main thread and do **main-thread hang** yet they are here to enable developers to implements their desired processes. The more general idea of making programmers totally incapable of ever doing something -just because it is slitly unsound relatively to an hyper general indulged-in paradigm- is what this argument is. This is what appened with not allowing top level awaits in script for the same reason, and then allowing it for module script, because actually it is practical even if thurther UI elements won't render until all top level awaits finishes.
  - **Alternatives Exist such as using Atomics.wait() in SharedArrayBuffer within a WebWorker**: Wrapping your entire solution in a WebWorker and get significant architectural complexity just to avoid async functions is indeed very tempting. But the goal of the this proposal is to make `sync_wait` widely available. `sync_wait` is about practicality: giving developers a clean, first-class tool to handle async behavior anywhere without friction.
  - **Timing Attacks**: Some may raise concerns that `sync_wait` could enable timing attacks by allowing a Promise to be awaited synchronously and measuring how long it takes to resolve. However, this concern is not unique to `sync_wait` — it already applies to all existing asynchronous behavior in JavaScript:
     + A developer can record timestamps before and after any await or .then() callback to measure how long a Promise took to resolve.
@@ -89,6 +89,6 @@ const result = sync_wait someAsyncOperation();
 <br>
 
 ### 9. A Feature Expected from Developpers
- - Blocking is available in scripting-friendly languages like Python, Go, Ruby. Ideal for debugging.
+ - By contrast with JavaScript, scripting-friendly languages like Python, Go, and Ruby use blocking by default, with async behavior as an opt-in feature — making them ideal for debugging.
 
 
