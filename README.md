@@ -1,7 +1,7 @@
 # Stage 0 Proposal: `sync_wait`
 
 ## Authors
-Your name (or alias)
+LPMat
 
 ## Problem
 
