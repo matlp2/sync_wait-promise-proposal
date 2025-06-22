@@ -74,12 +74,13 @@ const result = sync_wait(someAsyncOperation());
 
 <br>
 
-8. Some False Reasons to Avoid Sync
+8. Common Objections — and Why They Don't Hold
  - **UI freezes**: **any `while` loop** can completely block the browser’s main thread and freeze the UI — this is known as a **main-thread hang**. Yet we don't ban `while` loops — we trust developers to use them responsibly, or provide tooling to warn them.
  - **Timing Attacks**: Some may raise concerns that `sync_wait` could enable timing attacks by allowing a Promise to be awaited synchronously and measuring how long it takes to resolve. However, this concern is not unique to `sync_wait` — it already applies to all existing asynchronous behavior in JavaScript:
     + A developer can record timestamps before and after any await or .then() callback to measure how long a Promise took to resolve.
     + Even a micro-task or frame delay can be measured using high-resolution timers (e.g., performance.now() in some contexts).
     + If timing a secret-dependent operation is possible, it can already be exploited with async APIs — with or without `sync_wait`. If blocking synchronous resolution were a security risk, then the same would apply to await, .then(), and even setTimeout patterns.
+ - **Alternatives Exist such as using Atomics.wait() in SharedArrayBuffer within a WebWorker**: Wrapping your entire solution in a WebWorker and get significant architectural complexity just to avoid async functions is indeed very tempting. But the goal of the this proposal is to make `sync_wait` widely available. `sync_wait` is about practicality: giving developers a clean, first-class tool to handle async behavior where and when they choose — with minimal friction.
  - **JavaScript is “Asynchronous by Design”**: Claiming that JavaScript is “asynchronous by design” and therefore must enforce restrictive tooling for handling async operations is misguided. Such restrictions only force developers to avoid async whenever possible due to the complexity it introduces in testing, debugging, and maintaining control flow. This often leads to convoluted code and frustrated developers. Instead, JavaScript should aim to be “nice and practical by design”—providing developers with flexible, explicit tools like `sync_wait` that make async programming more intuitive, easier to debug, and better aligned with real-world development needs.
 
 <br>
