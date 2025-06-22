@@ -97,8 +97,8 @@ const result = sync_wait(someAsyncOperation());
 
 11. Most Projects Never Reach a Usable Product
  - In real-world development, only a small fraction of projects make it to a usable, maintained product. The vast majority are prototypes, internal tools, abandoned explorations, or learning efforts. JavaScript has historically thrived in this space because it’s easy to write, easy to debug, and fast to iterate — making it one of the most efficient languages for turning ideas into working software.
-However, async contagion undermines this strength. When a single async operation forces every calling function to become async, the project’s entire control flow becomes fragmented. This can ruin the debuggability of the codebase permanently — even if the rest of the logic is otherwise simple, testable, and synchronous. In practice, this often discourages developers from using async at all, even when appropriate.
-By introducing sync_wait, we preserve JavaScript’s core strength: pragmatic, debuggable, developer-first workflows — especially during the most fragile stage of a project: getting it to work in the first place.
+<br>However, async contagion undermines this strength. When a single async operation forces every calling function to become async, the project’s entire control flow becomes fragmented. This can ruin the debuggability of the codebase permanently — even if the rest of the logic is otherwise simple, testable, and synchronous. In practice, this often discourages developers from using async at all, even when appropriate.
+<br>By introducing sync_wait, we preserve JavaScript’s core strength: pragmatic, debuggable, developer-first workflows — especially during the most fragile stage of a project: getting it to work in the first place.
 
 <br>
 
