@@ -1,7 +1,7 @@
 # Stage 0 Proposal: `sync_wait`
 
 ## Authors
-LPMat & ChatGPT
+MatLP & ChatGPT
 
 ## Problem
 
