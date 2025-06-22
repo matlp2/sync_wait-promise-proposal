@@ -34,7 +34,7 @@ const result = sync_wait someAsyncOperation();
 
 <br>
 
-2. Optimize with Async Contagion Only if Needed
+2. Optimize with "Async Contagion" Only if Needed
 - Developers can choose to write simple, top-down, synchronous code.
 - Avoids the need to prematurely restructure entire call chains into `async` functions due to a single async operation — a problem known as **async contagion**.
 - Avoids premature async abstraction and lets teams build and validate real functionality first.
