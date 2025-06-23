@@ -88,7 +88,7 @@ const result = sync_wait someAsyncOperation();
 
 <br>
 
-### 9. A Feature Expected from Developpers
- - By contrast with JavaScript, scripting-friendly languages like Python, Go, and Ruby use blocking by default, with async behavior as an opt-in feature — making them ideal for debugging.
+### 9. An Expected Feature
+By contrast with JavaScript, scripting-friendly languages like Python and Go use blocking by default, with async behavior as an opt-in feature. While there may not be explicit `sync_wait` syntax, it can intentionally be used for asynchronous behavior if needed.
 
 
