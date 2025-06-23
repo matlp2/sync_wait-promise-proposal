@@ -14,9 +14,8 @@ const result = sync_wait(
 );
 ```
 
-<br>
 
-Note: `sync_wait` is not a function because it changes the asyn/await exection flow, so it is a keyword with parameters.
+Note: `sync_wait` is not a function because it changes the async/await exection flow; it is a keyword with parameters.
 
 <br>
 
