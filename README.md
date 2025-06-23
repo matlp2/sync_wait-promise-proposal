@@ -17,7 +17,7 @@ const result = sync_wait someAsyncOperation();
 ### 1. Improves Debuggability
  - Avoids async stack traces and step-over issues in debuggers.
  - Allows full variable inspection across the call stack without async indirection.
- - Makes using async-heavy APIs much easier.
+ - Makes using async-heavy APIs much easier to use.
 
 <br>
 
