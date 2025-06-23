@@ -89,7 +89,7 @@ const result = sync_wait someAsyncOperation();
 <br>
 
 ### 9. An Expected Feature
- - By contrast with JavaScript, scripting-friendly languages like Python and Go use blocking by default, with async behavior as an opt-in feature. While there may not be explicit `sync_wait` syntax, it can intentionally be used for asynchronous behavior if needed.
+ - By contrast with JavaScript, scripting-friendly languages like Python and Go use blocking by default, with async behavior as an opt-in feature. While there may not be explicit `sync_wait` syntax, this by-default behavior can used intentionally — unlike JavaScript where it is still impossible.
 
 <br>
 
