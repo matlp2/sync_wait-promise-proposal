@@ -11,7 +11,7 @@ When a function executes an await, instead
 ```js
 const result = sync_wait(5000) { // optional timeout of 5s
    
-   // the code here is executed an a "total synchronous mode" where all await are instead synchronous even for each subsquent recusive function calls
+   // the code here is executed an a "total synchronous mode" where all await are instead synchronous even for each subsquent nested function calls
    
    const a = asyncFunc();  // behave the same as [await asyncFunc();] in this context
    
