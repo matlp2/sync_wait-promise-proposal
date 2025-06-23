@@ -11,6 +11,7 @@ Introduce a new keyword `sync_wait`, which behaves like `await`, but can be used
 const result = sync_wait someAsyncOperation();
 ```
 
+<br>
 
 ## Why JavaScript Needs `sync_wait`
 ### 1. Improves Debuggability
