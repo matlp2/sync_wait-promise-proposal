@@ -5,11 +5,18 @@ ChatGPT & MatLP
 
 ## Proposal
 
-Introduce a new keyword `sync_wait`, which behaves like `await`, but can be used **outside async functions**, and blocks synchronously until the promise resolves or rejects.
+Introduce a new keyword/function/whatever `sync_wait`, which behaves like `await`, but can be used **outside async functions**, and blocks synchronously until the promise resolves or rejects.
 
 ```js
-const result = sync_wait someAsyncOperation();
+const result = sync_wait(
+   someAsyncOperation(),
+   5000, // optional timeout
+);
 ```
+
+<br>
+
+Note: `sync_wait` is not a function because it changes the asyn/await exection flow, so it is a keyword with parameters.
 
 <br>
 
@@ -58,6 +65,7 @@ const result = sync_wait someAsyncOperation();
 
 ### 7. Discussing Common Objections — and Why They Don't Hold
  - **UI freezes**: Any `while` loop can completely block the browser’s main thread and do **main-thread hang** yet `while` loops are permited let you actually write you desired process. The general idea of making something totally impossible of ever doing for programmers —just because it is slitly unsound relatively to an hyper general indulged-in questionable paradigm— is what this argument is. This is what appened with not allowing top level awaits in scripts for the same reason, and then allowing it for module scripts, because actually it is practical even if it can cause thurther UI elements to not render until all top level awaits finishes.
+ - **It can cause blocking behavior that wouldn't be blocking otherwise on iter-dependent promises**: Anything related to asynchronous code can block. However it must be acknowledged that new deadlooks I can indeed cause a deadlocks however you have the possibility to debug.
  - **Alternatives Exist such as using Atomics.wait() in SharedArrayBuffer within a WebWorker**: Wrapping your entire solution in a WebWorker and get significant architectural complexity just to avoid async functions is indeed very tempting. But the goal of the this proposal is to make `sync_wait` widely available. `sync_wait` is about practicality: giving developers a clean, first-class tool to handle async behavior anywhere without friction.
  - **Timing Attacks**: Some may raise concerns that `sync_wait` could enable timing attacks by allowing a Promise to be awaited synchronously and measuring how long it takes to resolve. However, this concern is not unique to `sync_wait` — it already applies to all existing asynchronous behavior in JavaScript:
     + A developer can record timestamps before and after any await or .then() callback to measure how long a Promise took to resolve.
