@@ -9,13 +9,18 @@ Introduce a new keyword/function/whatever `sync_wait`, which behaves like `await
 
 ```js
 const result = sync_wait(
-   someAsyncOperation(),
+   promise,
    5000, // optional timeout
 );
 ```
 
 
 Note: `sync_wait` is not a function because it changes the async/await exection flow; it is a keyword with parameters.
+<br>the following code is also valid for no timeout:
+
+```js
+const result = sync_wait promise;
+```
 
 <br>
 
