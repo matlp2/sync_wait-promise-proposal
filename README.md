@@ -1,4 +1,4 @@
-# Stage 0 Proposal: `sync_wait`
+# Proposal: `sync_wait`
 
 ## Authors
 ChatGPT & MatLP
