@@ -64,8 +64,8 @@ const result = sync_wait someAsyncOperation();
 
 ### 6. `sync_wait` Is Explicit and Cannot Be Used by Mistake
  - One of the strengths of `sync_wait` is that it is intentionally and unmistakably synchronous. Unlike accidentally blocking the main thread with a poorly written while loop or a large synchronous JSON parse, the use of `sync_wait` would be deliberate and self-documenting. Its name makes it clear to the reader that this is a blocking operation making its use both readable and auditable.
- - This makes `sync_wait` fundamentally different from hidden performance traps. It would only be used where the developer has decided that synchronous waiting is the right tradeoff — for example, in tooling, testing, GPU debugging, or one-off scripts.
- - Rather than hiding synchronous behavior, `sync_wait` makes it explicit, traceable, and opt-in — exactly the kind of construct responsible developers rely on in practical software development.
+ - This makes `sync_wait` fundamentally different from hidden performance traps. It would only be used where the developer has decided that synchronous waiting is the right tradeoff. Ideal for tooling, testing, GPU debugging, or one-off scripts.
+ - `sync_wait` makes it explicit, traceable, and opt-in.
 
 <br>
 
