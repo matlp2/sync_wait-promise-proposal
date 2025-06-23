@@ -5,22 +5,36 @@ ChatGPT & MatLP
 
 ## Proposal
 
-Introduce a new keyword/function/whatever `sync_wait`, which behaves like `await`, but can be used **outside async functions**, and blocks synchronously until the promise resolves or rejects.
+Introduce a new keyword `sync_wait`, which behaves like `await`, but can be used **outside async functions**, and blocks synchronously until the promise resolves or rejects.
+When a function executes an await, instead 
 
 ```js
-const result = sync_wait(
-   promise,
-   5000, // optional timeout
-);
+const result = sync_wait(5000) { // optional timeout of 5s
+   
+   // the code here is executed an a "total synchronous mode" where all await are instead synchronous
+   
+   const a = asyncFunc();  // behave the same as [await asyncFunc();] in this context
+   
+   const b = await asyncFunc(); // behave the same as [asyncFunc();] without await in this context
+   
+   return a + b
+}
 ```
-<pre lang="js"><code><span style="color:#569CD6">const</span> result = <span style="color:#DCDCAA">sync_wait</span>( promise, <span style="color:#B5CEA8">5000</span>, <span style="color:#6A9955">// optional timeout</span> ); </code></pre>
+
 
 Note: `sync_wait` is not a function because it changes the async/await exection flow; it is a keyword with parameters.
 <br>the following code is also valid for no timeout:
 
 ```js
-const result = sync_wait promise;
+const result = sync_wait asyncFunc();
+const result = sync_wait(3000) asyncFunc();
 ```
+
+<pre lang="js">
+   <code>
+      <span style="color:#569CD6">const</span> result = <span style="color:#DCDCAA">sync_wait</span>(promise, <span style="color:#B5CEA8">5000</span>, <span style="color:#6A9955">// optional timeout</span> );
+   </code>
+</pre>
 
 <br>
 
@@ -87,8 +101,8 @@ const result = sync_wait promise;
 
 <br>
 
-### 9. An Expected Feature
- - By contrast with JavaScript, scripting-friendly languages like Python and Go use blocking by default, with async behavior as an opt-in feature. While there may not be explicit `sync_wait` syntax, this by-default behavior can used intentionally — unlike JavaScript where it is still impossible.
+NO => ### 9. An Expected Feature
+NO =>  - By contrast with JavaScript, scripting-friendly languages like Python and Go use blocking by default, with async behavior as an opt-in feature. While there may not be explicit `sync_wait` syntax, this by-default behavior can used intentionally — unlike JavaScript where it is still impossible.
 
 <br>
 
