@@ -13,7 +13,7 @@ const result = sync_wait(
    5000, // optional timeout
 );
 ```
-
+<pre lang="js"><code><span style="color:#569CD6">const</span> result = <span style="color:#DCDCAA">sync_wait</span>( promise, <span style="color:#B5CEA8">5000</span>, <span style="color:#6A9955">// optional timeout</span> ); </code></pre>
 
 Note: `sync_wait` is not a function because it changes the async/await exection flow; it is a keyword with parameters.
 <br>the following code is also valid for no timeout:
